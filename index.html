@@ -4,69 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>FAQ アコーディオン</title>
-  <style>
-    body {
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      line-height: 1.6;
-      margin: 40px auto;
-      max-width: 600px;
-      padding: 0 16px;
-      color: #333;
-    }
-
-    h1 {
-      text-align: center;
-      margin-bottom: 24px;
-      font-size: 1.8rem;
-    }
-
-    .faq-item {
-      border-bottom: 1px solid #e0e0e0;
-      padding: 16px 0;
-    }
-
-    .question {
-      font-weight: bold;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 12px;
-    }
-
-    .question button {
-      all: unset;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      width: 100%;
-    }
-
-    .question-text {
-      flex: 1;
-    }
-
-    .arrow {
-      transition: transform 0.3s ease;
-      font-size: 0.9rem;
-    }
-
-    .question.open .arrow {
-      transform: rotate(180deg);
-    }
-
-    .answer {
-      background-color: #f7f7f7;
-      margin-top: 12px;
-      padding: 12px;
-      border-radius: 4px;
-      display: none;
-    }
-
-    .answer.open {
-      display: block;
-    }
-  </style>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <h1>よくある質問</h1>
@@ -75,7 +13,7 @@
       <div class="question" data-index="0">
         <button type="button">
           <span class="question-text">Q1. 配送にはどのくらい時間がかかりますか？</span>
-          <span class="arrow">▼</span>
+          <span class="arrow" aria-hidden="true">▼</span>
         </button>
       </div>
       <div class="answer" id="answer-0">
@@ -86,7 +24,7 @@
       <div class="question" data-index="1">
         <button type="button">
           <span class="question-text">Q2. 返品は可能ですか？</span>
-          <span class="arrow">▼</span>
+          <span class="arrow" aria-hidden="true">▼</span>
         </button>
       </div>
       <div class="answer" id="answer-1">
@@ -97,7 +35,7 @@
       <div class="question" data-index="2">
         <button type="button">
           <span class="question-text">Q3. 支払い方法は何がありますか？</span>
-          <span class="arrow">▼</span>
+          <span class="arrow" aria-hidden="true">▼</span>
         </button>
       </div>
       <div class="answer" id="answer-2">
@@ -106,29 +44,6 @@
     </div>
   </div>
 
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      const faqItems = document.querySelectorAll('.faq-item');
-
-      faqItems.forEach((item) => {
-        const question = item.querySelector('.question');
-        const answer = item.querySelector('.answer');
-
-        question.addEventListener('click', () => {
-          const isOpen = answer.classList.contains('open');
-
-          faqItems.forEach((otherItem) => {
-            otherItem.querySelector('.answer').classList.remove('open');
-            otherItem.querySelector('.question').classList.remove('open');
-          });
-
-          if (!isOpen) {
-            answer.classList.add('open');
-            question.classList.add('open');
-          }
-        });
-      });
-    });
-  </script>
+  <script src="script.js"></script>
 </body>
 </html>
